@@ -11,25 +11,21 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Output directory for binaries
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-# Force consistent runtime library usage
-# Multi-threaded Debug DLL (/MDd) for Debug, Multi-threaded DLL (/MD) for Release
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MDd")
-set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MDd")
-set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MD")
-
-# Include directories for the project
+# Include directories for headers
 include_directories(
     src
     src/Cerberus
     src/Game
     external/glad/include
     external/glfw/include
+    external/glm # Include GLM headers
 )
 
 # Source files for the project
 file(GLOB_RECURSE PROJECT_SOURCES
-    src/*.cpp
+    src/Cerberus/*.cpp
+    src/Game/*.cpp
+    src/main.cpp
 )
 
 # Add the executable target
