@@ -3,26 +3,26 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <string>
 
 class Renderer {
 public:
-    Renderer();
-    ~Renderer();
-
-    bool init(int width, int height, const std::string& title);
-    void clear(float r, float g, float b, float a);
+    static Renderer& getInstance();
+    void init(int width, int height, const std::string& title);
+    void clear();
     void swapBuffers();
-    bool shouldClose() const;
     GLFWwindow* getWindow() const;
 
-    void drawTriangle();  // New method for drawing a triangle
+    // Clean up resources
+    ~Renderer();
 
 private:
-    GLFWwindow* window;
-    unsigned int createShaderProgram();  // Method for creating shader programs
+    Renderer() = default;
+    GLFWwindow* window = nullptr;
 };
 
-#endif
+#endif // RENDERER_H
+
 

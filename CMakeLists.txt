@@ -1,56 +1,57 @@
-# Minimum CMake version
 cmake_minimum_required(VERSION 3.16)
 
-# Project name and language
-project(CerberusEngine LANGUAGES CXX)
+# Project Name and Version
+project(CerberusGameEngine VERSION 1.0 LANGUAGES CXX)
 
-# Set C++ standard
+# Set C++ Standard
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Output directory for binaries
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+# Define source directories
+set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
+set(ASSETS_DIR "${PROJECT_SOURCE_DIR}/assets")
+set(EXTERNAL_DIR "${PROJECT_SOURCE_DIR}/external")
 
-# Include directories for headers
-include_directories(
-    src
-    src/Cerberus
-    src/Game
-    external/glad/include
-    external/glfw/include
-    external/glm # Include GLM headers
+# Output directories for binaries
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
+
+# Add the main source files
+file(GLOB_RECURSE ENGINE_SOURCES "${SRC_DIR}/Cerberus/*.cpp")
+file(GLOB_RECURSE GAME_SOURCES "${SRC_DIR}/Game/*.cpp")
+set(MAIN_FILE "${SRC_DIR}/main.cpp")
+
+# Add executable
+add_executable(CerberusGameEngine ${ENGINE_SOURCES} ${GAME_SOURCES} ${MAIN_FILE})
+
+# Include directories
+target_include_directories(CerberusGameEngine PRIVATE
+    "${SRC_DIR}/Cerberus"
+    "${SRC_DIR}/Game"
+    "${EXTERNAL_DIR}/glad/include"
+    "${EXTERNAL_DIR}/glfw/include"
 )
 
-# Source files for the project
-file(GLOB_RECURSE PROJECT_SOURCES
-    src/Cerberus/*.cpp
-    src/Game/*.cpp
-    src/main.cpp
-)
+# Add glad source file
+add_library(glad "${EXTERNAL_DIR}/glad/src/glad.c")
+target_include_directories(glad PRIVATE "${EXTERNAL_DIR}/glad/include")
 
-# Add the executable target
-add_executable(GameEngine ${PROJECT_SOURCES})
+# GLFW (Assumes glfw is included as source in the project directory)
+add_subdirectory("${EXTERNAL_DIR}/glfw" "${CMAKE_BINARY_DIR}/glfw")
 
-# Add GLAD as a library
-add_library(glad external/glad/src/glad.c)
+# Link libraries
+target_link_libraries(CerberusGameEngine PRIVATE glad glfw ${CMAKE_DL_LIBS})
 
-# Ensure GLAD uses consistent runtime libraries
-set_target_properties(glad PROPERTIES
-    MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
-)
-
-# Add GLFW as a subdirectory
-add_subdirectory(external/glfw)
-
-# Ensure GLFW uses consistent runtime libraries
-set_target_properties(glfw PROPERTIES
-    MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
-)
-
-# Link libraries to the executable
-target_link_libraries(GameEngine PRIVATE glad glfw opengl32)
-
-# Platform-specific settings (optional)
-if (WIN32)
-    target_compile_definitions(GameEngine PRIVATE GLFW_EXPOSE_NATIVE_WIN32)
+# Set up additional build flags for debugging
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    target_compile_definitions(CerberusGameEngine PRIVATE DEBUG)
+    message("Building in Debug mode")
+else()
+    message("Building in Release mode")
 endif()
+
+# Copy assets to the build directory after compiling
+add_custom_command(
+    TARGET CerberusGameEngine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    "${ASSETS_DIR}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/assets"
+)
