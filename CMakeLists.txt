@@ -7,13 +7,24 @@ project(CerberusGameEngine VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Define source directories
+# Define directories
 set(SRC_DIR "${PROJECT_SOURCE_DIR}/src")
 set(ASSETS_DIR "${PROJECT_SOURCE_DIR}/assets")
 set(EXTERNAL_DIR "${PROJECT_SOURCE_DIR}/external")
+set(RUNTIME_OUTPUT_DIR "${PROJECT_SOURCE_DIR}/bin/Debug")
+set(LIBRARY_OUTPUT_DIR "${PROJECT_SOURCE_DIR}/bin/lib")
+set(ARCHIVE_OUTPUT_DIR "${PROJECT_SOURCE_DIR}/bin/lib")
 
-# Output directories for binaries
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_SOURCE_DIR}/bin")
+# Apply output directories globally
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${RUNTIME_OUTPUT_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${LIBRARY_OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${ARCHIVE_OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${RUNTIME_OUTPUT_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${LIBRARY_OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${ARCHIVE_OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${RUNTIME_OUTPUT_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${LIBRARY_OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${ARCHIVE_OUTPUT_DIR})
 
 # Add the main source files
 file(GLOB_RECURSE ENGINE_SOURCES "${SRC_DIR}/Cerberus/*.cpp")
@@ -35,7 +46,10 @@ target_include_directories(CerberusGameEngine PRIVATE
 add_library(glad "${EXTERNAL_DIR}/glad/src/glad.c")
 target_include_directories(glad PRIVATE "${EXTERNAL_DIR}/glad/include")
 
-# GLFW (Assumes glfw is included as source in the project directory)
+# GLFW (Force consistent output directory)
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "Do not build GLFW examples")
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "Do not build GLFW tests")
+set(GLFW_BUILD_DOCS OFF CACHE BOOL "Do not build GLFW docs")
 add_subdirectory("${EXTERNAL_DIR}/glfw" "${CMAKE_BINARY_DIR}/glfw")
 
 # Link libraries
@@ -49,9 +63,14 @@ else()
     message("Building in Release mode")
 endif()
 
-# Copy assets to the build directory after compiling
+# Copy assets to the runtime output directory after compiling
 add_custom_command(
     TARGET CerberusGameEngine POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    "${ASSETS_DIR}" "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/assets"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${RUNTIME_OUTPUT_DIR}/assets"
+    COMMAND ${CMAKE_COMMAND} -E copy_directory "${ASSETS_DIR}" "${RUNTIME_OUTPUT_DIR}/assets"
 )
+
+# Debugging output
+message(STATUS "Runtime Output Directory: ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+message(STATUS "Library Output Directory: ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
+message(STATUS "Archive Output Directory: ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY}")

@@ -61,6 +61,7 @@ void Shader::compileShader(unsigned int shader, const std::string& source) {
     }
 }
 
+
 Shader::~Shader() {
     glDeleteProgram(id);
 }
