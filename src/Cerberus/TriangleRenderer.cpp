@@ -29,7 +29,7 @@ TriangleRenderer::TriangleRenderer() {
 }
 
 void TriangleRenderer::onTick() {
-    // Update logic (if needed)
+   
 }
 
 void TriangleRenderer::onRender() {

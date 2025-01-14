@@ -23,7 +23,7 @@ public:
                 return casted;
             }
         }
-        return nullptr; // Return nullptr if no component of type T is found
+        return nullptr; 
     }
 
 

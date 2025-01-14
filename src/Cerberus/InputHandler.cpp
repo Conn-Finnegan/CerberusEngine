@@ -17,15 +17,15 @@ void InputHandler::handleKeyboardInput(GLFWwindow* window, float deltaTime) {
 
 void InputHandler::handleMouseInput(GLFWwindow* window, double xpos, double ypos) {
     if (firstMouse) {
-        lastX = xpos;
-        lastY = ypos;
+        lastX = static_cast<float>(xpos);
+        lastY = static_cast<float>(ypos);
         firstMouse = false;
     }
 
-    float xoffset = xpos - lastX;
-    float yoffset = lastY - ypos; // Reversed since y-coordinates range from bottom to top
-    lastX = xpos;
-    lastY = ypos;
+    float xoffset = static_cast<float>(xpos) - lastX;
+    float yoffset = lastY - static_cast<float>(ypos); 
+    lastX = static_cast<float>(xpos);
+    lastY = static_cast<float>(ypos);
 
     camera->processMouseMovement(xoffset * mouseSensitivity, yoffset * mouseSensitivity);
 }
@@ -37,3 +37,4 @@ void InputHandler::setMouseSensitivity(float sensitivity) {
 void InputHandler::setFirstMouse(bool isFirst) {
     firstMouse = isFirst;
 }
+

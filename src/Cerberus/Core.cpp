@@ -1,4 +1,5 @@
 #include "Core.h"
+#include "CubeRenderer.h"
 #include <GLFW/glfw3.h>
 
 std::shared_ptr<Core> Core::initialize() {
@@ -9,25 +10,28 @@ std::shared_ptr<Core> Core::initialize() {
     core->renderer->init(800, 600, "Cerberus Game Engine");
     core->running = true;
 
-    // Initialize input handling
-    core->initializeInputHandler();
+    //  Core instance with the GLFW window
+    glfwSetWindowUserPointer(core->renderer->getWindow(), core.get());
 
+    core->initializeInputHandler();
     return core;
 }
 
 void Core::initializeInputHandler() {
     auto window = renderer->getWindow();
 
-    // Set mouse input callback to delegate to InputHandler
-    glfwSetCursorPosCallback(window, [](GLFWwindow* win, double xpos, double ypos) {
-        auto core = Core::getInstance();
-        if (core) {
-            core->inputHandler->handleMouseInput(win, xpos, ypos);
-        }
-        });
+    // Set GLFW mouse input callback
+    glfwSetCursorPosCallback(window, Core::mouseCallback);
 
     // Disable the cursor for camera control
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+}
+
+void Core::mouseCallback(GLFWwindow* window, double xpos, double ypos) {
+    Core* core = static_cast<Core*>(glfwGetWindowUserPointer(window));
+    if (core && core->inputHandler) {
+        core->inputHandler->handleMouseInput(window, xpos, ypos);
+    }
 }
 
 void Core::run() {
@@ -38,24 +42,22 @@ void Core::run() {
         float deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        // Clear the screen
         renderer->clear();
-
-        // Handle keyboard input through InputHandler
         inputHandler->handleKeyboardInput(renderer->getWindow(), deltaTime);
 
-        // Update and render entities
         tickEntities();
         renderEntities();
 
-        // Swap buffers and poll events
         renderer->swapBuffers();
         glfwPollEvents();
     }
 }
 
-void Core::stop() {
-    running = false;
+std::shared_ptr<Entity> Core::addEntity() {
+    auto entity = std::make_shared<Entity>();
+    entity->core = shared_from_this();
+    entities.push_back(entity);
+    return entity;
 }
 
 void Core::tickEntities() {
@@ -75,6 +77,8 @@ void Core::renderEntities() {
         entity->render();
     }
 }
+
+
 
 
 

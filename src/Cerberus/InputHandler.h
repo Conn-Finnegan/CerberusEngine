@@ -23,3 +23,4 @@ private:
     float lastY = 300.0f; // Initial mouse y-position
     float mouseSensitivity = 0.1f; // Default sensitivity
 };
+

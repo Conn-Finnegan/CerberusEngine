@@ -66,7 +66,7 @@ CubeRenderer::CubeRenderer() {
 
 
 void CubeRenderer::onTick() {
-    // Update logic (if needed)
+   
 }
 
 void CubeRenderer::onRender() {

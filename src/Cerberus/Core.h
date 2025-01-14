@@ -12,12 +12,13 @@ public:
     static std::shared_ptr<Core> initialize();
     void run();
     void stop();
+    std::shared_ptr<Entity> addEntity();
 
     // Mouse input processing
-    void processMouseInput(GLFWwindow* window, double xpos, double ypos);
+    static void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 
 private:
-    Core() = default; // Private constructor to enforce initialization via `initialize`
+    Core() = default;
 
     bool running = false;
     std::shared_ptr<Camera> camera;
@@ -25,8 +26,11 @@ private:
     std::shared_ptr<Renderer> renderer;
     std::vector<std::shared_ptr<Entity>> entities;
 
+    void initializeInputHandler();
     void tickEntities();
     void renderEntities();
 };
+
+
 
 

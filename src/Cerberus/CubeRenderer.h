@@ -14,6 +14,6 @@ public:
 
 private:
     unsigned int VAO, VBO;
-    std::shared_ptr<Shader> shader; // Keeps this member private
+    std::shared_ptr<Shader> shader; 
 };
 
