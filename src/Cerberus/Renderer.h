@@ -6,23 +6,27 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <string>
+#include <memory>
 
 class Renderer {
 public:
-    static Renderer& getInstance();
+    static std::shared_ptr<Renderer> getInstance(); // Singleton pattern
     void init(int width, int height, const std::string& title);
-    void clear();
+    void clear(float r = 0.2f, float g = 0.3f, float b = 0.3f, float a = 1.0f);
     void swapBuffers();
-    GLFWwindow* getWindow() const;
+    bool getWindowShouldClose() const;
 
-    // Clean up resources
+    GLFWwindow* getWindow() const; // To support input handling if needed
+
     ~Renderer();
 
 private:
-    Renderer() = default;
+    Renderer() = default; // Private constructor for singleton
     GLFWwindow* window = nullptr;
 };
 
 #endif // RENDERER_H
+
+
 
 

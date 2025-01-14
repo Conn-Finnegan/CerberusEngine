@@ -1,8 +1,8 @@
 #include "Renderer.h"
 #include <iostream>
 
-Renderer& Renderer::getInstance() {
-    static Renderer instance;
+std::shared_ptr<Renderer> Renderer::getInstance() {
+    static std::shared_ptr<Renderer> instance = std::shared_ptr<Renderer>(new Renderer());
     return instance;
 }
 
@@ -32,8 +32,8 @@ void Renderer::init(int width, int height, const std::string& title) {
     glViewport(0, 0, width, height);
 }
 
-void Renderer::clear() {
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+void Renderer::clear(float r, float g, float b, float a) {
+    glClearColor(r, g, b, a);
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -41,11 +41,19 @@ void Renderer::swapBuffers() {
     glfwSwapBuffers(window);
 }
 
+bool Renderer::getWindowShouldClose() const {
+    return glfwWindowShouldClose(window);
+}
+
 GLFWwindow* Renderer::getWindow() const {
     return window;
 }
 
 Renderer::~Renderer() {
+    if (window) {
+        glfwDestroyWindow(window);
+    }
     glfwTerminate();
 }
+
 
