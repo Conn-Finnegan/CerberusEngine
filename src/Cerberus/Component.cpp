@@ -1,13 +1,13 @@
+#include "Component.h"
+
+// If Component.cpp references Camera, ensure correct usage
 #include "Camera.h"
-#include <glm/gtc/matrix_transform.hpp>
 
-Camera::Camera(glm::vec3 position)
-    : position(position), front(glm::vec3(0.0f, 0.0f, -1.0f)), up(glm::vec3(0.0f, 1.0f, 0.0f)) {}
-
-glm::mat4 Camera::getViewMatrix() const {
-    return glm::lookAt(position, position + front, up);
+// Example of a placeholder function if you need to demonstrate Camera usage
+void demoCameraUsage() {
+    Camera camera; // Uses default constructor
+    camera.processKeyboard("FORWARD", 0.016f); // Simulate a small forward movement
+    glm::mat4 viewMatrix = camera.getViewMatrix(); // Get the view matrix
+    glm::mat4 projectionMatrix = camera.getProjectionMatrix(45.0f, 800.0f / 600.0f, 0.1f, 100.0f);
 }
 
-glm::mat4 Camera::getProjectionMatrix(float fov, float aspect, float nearPlane, float farPlane) const {
-    return glm::perspective(glm::radians(fov), aspect, nearPlane, farPlane);
-}
