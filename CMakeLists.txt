@@ -19,6 +19,16 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BUILD_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${LIBRARY_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${LIBRARY_DIR})
 
+# Detect architecture and set library directories
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    # 64-bit architecture
+    set(SDL2_LIB_DIR "${EXTERNAL_DIR}/SDL2/lib/x64")
+    set(SDL2_MIXER_LIB_DIR "${EXTERNAL_DIR}/SDL2_mixer/lib/x64")
+else()
+    # 32-bit architecture
+    set(SDL2_LIB_DIR "${EXTERNAL_DIR}/SDL2/lib/x86")
+    set(SDL2_MIXER_LIB_DIR "${EXTERNAL_DIR}/SDL2_mixer/lib/x86")
+endif()
 
 # Add source files
 file(GLOB_RECURSE ENGINE_SOURCES "${SRC_DIR}/Cerberus/*.cpp")
@@ -36,7 +46,10 @@ target_include_directories(CerberusGameEngine PRIVATE
     "${EXTERNAL_DIR}/glad/include"
     "${EXTERNAL_DIR}/glfw/include"
     "${EXTERNAL_DIR}/glm"
+    "${EXTERNAL_DIR}/SDL2/include"
+    "${EXTERNAL_DIR}/SDL2_mixer/include"
 )
+
 # Add glad as a static library
 add_library(glad "${EXTERNAL_DIR}/glad/src/glad.c")
 target_include_directories(glad PRIVATE "${EXTERNAL_DIR}/glad/include")
@@ -47,26 +60,33 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "Do not build GLFW tests")
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "Do not build GLFW docs")
 add_subdirectory("${EXTERNAL_DIR}/glfw" "${CMAKE_BINARY_DIR}/glfw")
 
-# GLM Integration
-# Assuming glm is a header-only library
+# GLM Integration (Header-only library)
 target_include_directories(CerberusGameEngine PRIVATE "${EXTERNAL_DIR}/glm")
 
-# Link libraries
+# Link SDL2 and SDL2_mixer libraries
+target_link_libraries(CerberusGameEngine PRIVATE
+    "${SDL2_LIB_DIR}/SDL2.lib"
+    "${SDL2_LIB_DIR}/SDL2main.lib"
+    "${SDL2_MIXER_LIB_DIR}/SDL2_mixer.lib"
+)
+
+# Link glad and glfw
 target_link_libraries(CerberusGameEngine PRIVATE glad glfw ${CMAKE_DL_LIBS})
 
-# Define build configurations
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    target_compile_definitions(CerberusGameEngine PRIVATE DEBUG)
-    message(STATUS "Building in Debug mode")
-else()
-    message(STATUS "Building in Release mode")
-endif()
+# Add definitions for GLFW
+add_definitions(-DGLFW_INCLUDE_NONE)
 
-# Post-build steps: Copy assets to runtime output directory
+# Post-build steps: Copy assets and DLLs to runtime output directory
 add_custom_command(
     TARGET CerberusGameEngine POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E make_directory "${BUILD_DIR}/assets"
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${ASSETS_DIR}" "${BUILD_DIR}/assets"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${SDL2_LIB_DIR}/SDL2.dll"
+        "$<TARGET_FILE_DIR:CerberusGameEngine>"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${SDL2_MIXER_LIB_DIR}/SDL2_mixer.dll"
+        "$<TARGET_FILE_DIR:CerberusGameEngine>"
 )
 
 # Debugging information
