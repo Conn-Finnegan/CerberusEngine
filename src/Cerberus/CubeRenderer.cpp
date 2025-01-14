@@ -6,67 +6,78 @@ CubeRenderer::CubeRenderer() {
     shader = std::make_shared<Shader>("../assets/shaders/vertex.glsl", "../assets/shaders/fragment.glsl");
 
     float vertices[] = {
-        // Positions
-        -0.5f, -0.5f, -0.5f,
-         0.5f, -0.5f, -0.5f,
-         0.5f,  0.5f, -0.5f,
-         0.5f,  0.5f, -0.5f,
-        -0.5f,  0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
+        // Positions          // Colours
+        // Back face
+        -0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, // Red
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, // Red
+         0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f, // Red
+         0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f, // Red
+        -0.5f,  0.5f, -0.5f,  1.0f, 0.0f, 0.0f, // Red
+        -0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 0.0f, // Red
 
-        -0.5f, -0.5f,  0.5f,
-         0.5f, -0.5f,  0.5f,
-         0.5f,  0.5f,  0.5f,
-         0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
-        -0.5f, -0.5f,  0.5f,
+        // Front face
+        -0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 0.0f, // Green
+         0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 0.0f, // Green
+         0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, // Green
+         0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, // Green
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 0.0f, // Green
+        -0.5f, -0.5f,  0.5f,  0.0f, 1.0f, 0.0f, // Green
 
-        -0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
+        // Left face
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, // Blue
+        -0.5f,  0.5f, -0.5f,  0.0f, 0.0f, 1.0f, // Blue
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, 1.0f, // Blue
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f, 1.0f, // Blue
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f, 1.0f, // Blue
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f, 1.0f, // Blue
 
-         0.5f,  0.5f,  0.5f,
-         0.5f,  0.5f, -0.5f,
-         0.5f, -0.5f, -0.5f,
-         0.5f, -0.5f, -0.5f,
-         0.5f, -0.5f,  0.5f,
-         0.5f,  0.5f,  0.5f,
+        // Right face
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f, // Yellow
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 0.0f, // Yellow
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f, // Yellow
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 0.0f, // Yellow
+         0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 0.0f, // Yellow
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 0.0f, // Yellow
 
-        -0.5f, -0.5f, -0.5f,
-         0.5f, -0.5f, -0.5f,
-         0.5f, -0.5f,  0.5f,
-         0.5f, -0.5f,  0.5f,
-        -0.5f, -0.5f,  0.5f,
-        -0.5f, -0.5f, -0.5f,
+         // Bottom face
+         -0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 1.0f, // Magenta
+          0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 1.0f, // Magenta
+          0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 1.0f, // Magenta
+          0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 1.0f, // Magenta
+         -0.5f, -0.5f,  0.5f,  1.0f, 0.0f, 1.0f, // Magenta
+         -0.5f, -0.5f, -0.5f,  1.0f, 0.0f, 1.0f, // Magenta
 
-        -0.5f,  0.5f, -0.5f,
-         0.5f,  0.5f, -0.5f,
-         0.5f,  0.5f,  0.5f,
-         0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f,  0.5f,
-        -0.5f,  0.5f, -0.5f
+         // Top face
+         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 1.0f, // Cyan
+          0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 1.0f, // Cyan
+          0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 1.0f, // Cyan
+          0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 1.0f, // Cyan
+         -0.5f,  0.5f,  0.5f,  0.0f, 1.0f, 1.0f, // Cyan
+         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f, 1.0f, // Cyan
     };
 
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
 
     glBindVertexArray(VAO);
+
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    // Position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
+
+    // Colour attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glEnableVertexAttribArray(1);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 }
 
-
 void CubeRenderer::onTick() {
-   
+    // No specific update logic for now
 }
 
 void CubeRenderer::onRender() {
