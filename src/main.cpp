@@ -1,13 +1,16 @@
 #include "Core.h"
-#include "TriangleRenderer.h"
+#include "CubeRenderer.h"
 
 int main() {
     auto core = Core::initialize();
 
-    auto entity = core->addEntity();
-    entity->addComponent<TriangleRenderer>();
+    // Add an entity with a CubeRenderer
+    auto cubeEntity = core->addEntity();
+    cubeEntity->addComponent<CubeRenderer>();
 
+    // Run the game engine
     core->run();
+
     return 0;
 }
 

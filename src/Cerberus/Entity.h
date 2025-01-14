@@ -15,6 +15,16 @@ public:
         components.push_back(component);
         return component;
     }
+    template <typename T>
+    std::shared_ptr<T> getComponent() {
+        for (const auto& component : components) {
+            auto casted = std::dynamic_pointer_cast<T>(component);
+            if (casted) {
+                return casted;
+            }
+        }
+        return nullptr; // Return nullptr if no component of type T is found
+    }
 
 
     void tick();

@@ -3,6 +3,7 @@
 #include <sstream>
 #include <iostream>
 #include <glad/glad.h>
+#include <glm/gtc/type_ptr.hpp>
 
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) {
     std::string vertexCode = loadShaderSource(vertexPath);
@@ -43,10 +44,6 @@ std::string Shader::loadShaderSource(const std::string& filePath) {
     return buffer.str();
 }
 
-void Shader::use() {
-    glUseProgram(id);
-}
-
 void Shader::compileShader(unsigned int shader, const std::string& source) {
     const char* src = source.c_str();
     glShaderSource(shader, 1, &src, nullptr);
@@ -61,6 +58,13 @@ void Shader::compileShader(unsigned int shader, const std::string& source) {
     }
 }
 
+void Shader::use() {
+    glUseProgram(id);
+}
+
+void Shader::setMat4(const std::string& name, const glm::mat4& mat) {
+    glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
+}
 
 Shader::~Shader() {
     glDeleteProgram(id);

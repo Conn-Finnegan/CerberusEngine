@@ -34,6 +34,7 @@ target_include_directories(CerberusGameEngine PRIVATE
     "${SRC_DIR}/Game"
     "${EXTERNAL_DIR}/glad/include"
     "${EXTERNAL_DIR}/glfw/include"
+    "${EXTERNAL_DIR}/glm"
 )
 
 # Add glad as a static library
@@ -46,12 +47,9 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "Do not build GLFW tests")
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "Do not build GLFW docs")
 add_subdirectory("${EXTERNAL_DIR}/glfw" "${CMAKE_BINARY_DIR}/glfw")
 
-# OpenAL Integration
-if(EXISTS "${EXTERNAL_DIR}/openal-soft")
-    add_subdirectory("${EXTERNAL_DIR}/openal-soft" "${CMAKE_BINARY_DIR}/openal-soft")
-    target_link_libraries(CerberusGameEngine PRIVATE OpenAL)
-    target_include_directories(CerberusGameEngine PRIVATE "${EXTERNAL_DIR}/openal-soft/include")
-endif()
+# GLM Integration
+# Assuming glm is a header-only library
+target_include_directories(CerberusGameEngine PRIVATE "${EXTERNAL_DIR}/glm")
 
 # Link libraries
 target_link_libraries(CerberusGameEngine PRIVATE glad glfw ${CMAKE_DL_LIBS})
