@@ -36,7 +36,6 @@ target_include_directories(CerberusGameEngine PRIVATE
     "${EXTERNAL_DIR}/glfw/include"
     "${EXTERNAL_DIR}/glm"
 )
-
 # Add glad as a static library
 add_library(glad "${EXTERNAL_DIR}/glad/src/glad.c")
 target_include_directories(glad PRIVATE "${EXTERNAL_DIR}/glad/include")
