@@ -5,9 +5,9 @@
 
 class Camera {
 public:
-    Camera(glm::vec3 position = glm::vec3(0.0f, 0.0f, 3.0f),
+    Camera(glm::vec3 position = glm::vec3(2.0f, 1.0f, 2.0f),
         glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f),
-        float yaw = -90.0f, float pitch = 0.0f);
+        float yaw = -133.0f, float pitch = -20.0f);
 
     glm::mat4 getViewMatrix() const;
     glm::mat4 getProjectionMatrix(float fov, float aspect, float nearPlane, float farPlane) const;
