@@ -12,6 +12,7 @@ The primary goal of this project is to create a secure engine that allows users 
 - Support for shaders to enhance graphical effects.
 - Collision handling and music player integration.
 - A demonstration program showcasing engine capabilities.
+- A doxygen file has been included to provide documentation 
 
 ## Prerequisites
 
