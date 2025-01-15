@@ -1,9 +1,9 @@
-// ResourceManager.h
+
 #pragma once
 
 #include <unordered_map>
 #include <string>
-#include <memory> // for std::unique_ptr
+#include <memory> 
 #include "Shader.h"
 
 class ResourceManager {

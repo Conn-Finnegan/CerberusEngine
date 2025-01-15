@@ -21,7 +21,7 @@ public:
     ~Renderer();
 
 private:
-    Renderer() = default; // Private constructor for singleton
+    Renderer() = default; // constructor for singleton
     GLFWwindow* window = nullptr;
 };
 

@@ -5,7 +5,7 @@ TriangleRenderer::TriangleRenderer() {
     // Initialize the shader
     shader = std::make_shared<Shader>("../assets/shaders/vertex.glsl", "../assets/shaders/fragment.glsl");
 
-    // Define triangle vertices
+    // triangle vertices
     float vertices[] = {
          0.0f,  0.5f, 0.0f,
         -0.5f, -0.5f, 0.0f,

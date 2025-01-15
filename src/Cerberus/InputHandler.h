@@ -19,8 +19,8 @@ public:
 private:
     std::shared_ptr<Camera> camera;
     bool firstMouse = true;
-    float lastX = 400.0f; // Initial mouse x-position
-    float lastY = 300.0f; // Initial mouse y-position
-    float mouseSensitivity = 0.1f; // Default sensitivity
+    float lastX = 400.0f; 
+    float lastY = 300.0f; 
+    float mouseSensitivity = 0.2f; 
 };
 

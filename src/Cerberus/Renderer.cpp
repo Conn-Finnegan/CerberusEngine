@@ -37,7 +37,7 @@ void Renderer::init(int width, int height, const std::string& title) {
 
 void Renderer::clear(float r, float g, float b, float a) {
     glClearColor(r, g, b, a);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear depth buffer as well
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clear depth buffer
 }
 
 

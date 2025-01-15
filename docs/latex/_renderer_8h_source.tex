@@ -1,0 +1,38 @@
+\doxysection{Renderer.\+h}
+\hypertarget{_renderer_8h_source}{}\label{_renderer_8h_source}\index{src/Cerberus/Renderer.h@{src/Cerberus/Renderer.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#ifndef\ RENDERER\_H}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ RENDERER\_H}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <glad/glad.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <GLFW/glfw3.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }Renderer\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{static}\ std::shared\_ptr<Renderer>\ getInstance();\ \textcolor{comment}{//\ Singleton\ }}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keyword}{const}\ std::string\&\ title);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{void}\ clear(\textcolor{keywordtype}{float}\ r\ =\ 0.2f,\ \textcolor{keywordtype}{float}\ g\ =\ 0.3f,\ \textcolor{keywordtype}{float}\ b\ =\ 0.3f,\ \textcolor{keywordtype}{float}\ a\ =\ 1.0f);}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{void}\ swapBuffers();}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{bool}\ getWindowShouldClose()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ GLFWwindow*\ getWindow()\ \textcolor{keyword}{const};\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \string~Renderer();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ Renderer()\ =\ \textcolor{keywordflow}{default};\ \textcolor{comment}{//\ constructor\ for\ singleton}}
+\DoxyCodeLine{00025\ \ \ \ \ GLFWwindow*\ window\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00026\ \};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#endif\ }}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ }
+
+\end{DoxyCode}

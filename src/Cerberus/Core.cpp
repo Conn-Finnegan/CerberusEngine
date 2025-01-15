@@ -10,7 +10,7 @@ std::shared_ptr<Core> Core::initialize() {
     core->renderer->init(800, 600, "Cerberus Game Engine");
     core->running = true;
 
-    //  Core instance with the GLFW window
+    
     glfwSetWindowUserPointer(core->renderer->getWindow(), core.get());
 
     core->initializeInputHandler();

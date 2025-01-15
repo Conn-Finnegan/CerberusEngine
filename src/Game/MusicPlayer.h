@@ -9,7 +9,7 @@ public:
     ~MusicPlayer();
 
     void loadMusic(const std::string& filePath);
-    void playMusic(int loops = -1); // -1 for infinite looping
+    void playMusic(int loops = -1); // -1 for looping
     void stopMusic();
 
 private:

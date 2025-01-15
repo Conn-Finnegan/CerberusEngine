@@ -1,4 +1,4 @@
-// ResourceManager.cpp
+
 #include "ResourceManager.h"
 
 std::unordered_map<std::string, std::unique_ptr<Shader>> ResourceManager::shaders;

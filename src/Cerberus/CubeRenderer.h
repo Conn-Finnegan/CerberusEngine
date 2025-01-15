@@ -10,7 +10,7 @@ public:
     void onRender() override;
     ~CubeRenderer();
 
-    std::shared_ptr<Shader> getShader() const { return shader; } // Accessor method
+    std::shared_ptr<Shader> getShader() const { return shader; } 
 
 private:
     unsigned int VAO, VBO;

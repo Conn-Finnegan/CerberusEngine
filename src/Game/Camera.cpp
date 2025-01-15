@@ -1,5 +1,5 @@
 #include "Camera.h"
-#include <cstring> // Required for strcmp
+#include <cstring> 
 
 Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch)
     : position(position), worldUp(up), yaw(yaw), pitch(pitch),

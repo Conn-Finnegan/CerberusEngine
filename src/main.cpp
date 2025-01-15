@@ -14,10 +14,10 @@ int main() {
 
     // Initialize and play music using MusicPlayer
     MusicPlayer musicPlayer;
-    musicPlayer.loadMusic("../assets/audio/music.wav"); // Replace with your file path
+    musicPlayer.loadMusic("../assets/audio/music.wav"); 
     musicPlayer.playMusic();
 
-    // Example usage of ResourceManager
+   
     Shader* basicShader = ResourceManager::LoadShader("basic", "../assets/shaders/vertex.glsl", "../assets/shaders/fragment.glsl");
 
     // Ensure application runs

@@ -18,13 +18,13 @@ void InputHandler::handleKeyboardInput(GLFWwindow* window, float deltaTime) {
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         nextPosition += camera->right * camera->movementSpeed * deltaTime;
 
-    // Define the cube's bounds (adjust based on cube position and size)
-    glm::vec3 cubeMin = glm::vec3(-0.7f, -0.7f, -0.7f); // Example bounds
+    
+    glm::vec3 cubeMin = glm::vec3(-0.7f, -0.7f, -0.7f); 
     glm::vec3 cubeMax = glm::vec3(0.7f, 0.7f, 0.7f);
 
     // Use CollisionHandler to check for collision
     if (!CollisionHandler::isPointInsideAABB(nextPosition, cubeMin, cubeMax)) {
-        // Update position only if no collision
+       
         camera->position = nextPosition;
     }
 }
@@ -36,13 +36,13 @@ void InputHandler::handleMouseInput(GLFWwindow* window, double xpos, double ypos
         firstMouse = false;
     }
 
-    // Calculate mouse movement offsets
+    
     float xoffset = static_cast<float>(xpos) - lastX;
     float yoffset = lastY - static_cast<float>(ypos);
     lastX = static_cast<float>(xpos);
     lastY = static_cast<float>(ypos);
 
-    // Process camera rotation based on mouse movement
+    // camera rotation based on mouse movement
     camera->processMouseMovement(xoffset * mouseSensitivity, yoffset * mouseSensitivity);
 }
 

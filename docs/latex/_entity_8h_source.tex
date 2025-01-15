@@ -1,0 +1,48 @@
+\doxysection{Entity.\+h}
+\hypertarget{_entity_8h_source}{}\label{_entity_8h_source}\index{src/Cerberus/Entity.h@{src/Cerberus/Entity.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Component.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_core}{Core}};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity}{Entity}}\ :\ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<Entity>\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00012\ \ \ \ \ std::shared\_ptr<T>\ addComponent(Args\&\&...\ args)\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ component\ =\ std::make\_shared<T>(std::forward<Args>(args)...);}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ component-\/>entity\ =\ shared\_from\_this();\ }
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ components.push\_back(component);}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ component;}
+\DoxyCodeLine{00017\ \ \ \ \ \}}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00019\ \ \ \ \ std::shared\_ptr<T>\ getComponent()\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ component\ :\ components)\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ casted\ =\ std::dynamic\_pointer\_cast<T>(component);}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (casted)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ casted;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};\ }
+\DoxyCodeLine{00027\ \ \ \ \ \}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ tick();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ render();}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<std::shared\_ptr<Component>>\ components;}
+\DoxyCodeLine{00035\ \ \ \ \ std::weak\_ptr<Core>\ core;\ \textcolor{comment}{//\ Allow\ Core\ to\ access\ this\ member}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }Core;\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+
+\end{DoxyCode}

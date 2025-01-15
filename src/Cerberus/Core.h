@@ -14,7 +14,7 @@ public:
     void stop();
     std::shared_ptr<Entity> addEntity();
 
-    // Mouse input processing
+    // Mouse input 
     static void mouseCallback(GLFWwindow* window, double xpos, double ypos);
 
 private:
