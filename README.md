@@ -1,6 +1,6 @@
-# CERBERUS
+# Cerberus Engine
 
-This repository contains the source code for a simple game engine built in C++ and OpenGL. The engine demonstrates the fundamentals of rendering, entity management, and component-based architecture.
+This repository contains the source code for **Cerberus Engine**, a simple game engine built in C++ and OpenGL. The engine demonstrates the fundamentals of rendering, entity management, and component-based architecture.
 
 The primary goal of this project is to create a secure engine that allows users to build games by adding components and defining behaviour without altering the core functionality. This design provides flexibility for game creation while maintaining the integrity of the engine's core systems.
 
@@ -30,8 +30,8 @@ To build and run this project, ensure you have the following installed:
 ### Clone the Repository
 To clone the repository, use the following commands:
 ```bash
-git clone https://github.com/YourUsername/YourRepoName.git
-cd YourRepoName
+git clone https://github.com/YourUsername/CerberusEngine.git
+cd CerberusEngine
 ```
 
 ### Install Dependencies
@@ -54,7 +54,7 @@ cmake --build .
 ### Run the Executable
 After building, navigate to the `build` directory and run the generated executable:
 ```bash
-./YourExecutableName
+./CerberusEngine
 ```
 
 ## Usage
@@ -66,8 +66,9 @@ The demonstration program displays a simple 3D scene with basic shapes. It allow
 - Adjust parameters using the integrated GUI (if applicable).
 
 ### Controls
-- **Keyboard**: A and D for side movement of camera ( modify as necessary )
-- **Mouse**: Mouse movement for camera control ( modify as necessary )
+- **Keyboard**: Use `A` and `D` for side camera movement.
+- **Mouse**: Use the mouse for camera control.
+
 
 ## Contributing
 
@@ -83,5 +84,3 @@ Ensure your code follows the existing style and is well-documented.
 
 This project is licensed under the [MIT License](LICENSE).
 ```
-
-
