@@ -1,4 +1,4 @@
-# CERBERUSENGINE
+# CERBERUS
 
 This repository contains the source code for a simple game engine built in C++ and OpenGL. The engine demonstrates the fundamentals of rendering, entity management, and component-based architecture.
 
