@@ -73,5 +73,5 @@ Ensure your code follows the existing style and is well-documented.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License]
 ```
