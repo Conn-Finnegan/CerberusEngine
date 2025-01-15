@@ -19,10 +19,6 @@ To build and run this project, ensure you have the following installed:
 
 - **C++ Compiler**: GCC, Clang, or MSVC supporting C++17 or later.
 - **OpenGL**: Version 3.3 or higher.
-- **GLFW**: For window and input management.
-- **GLAD**: For OpenGL function loading.
-- **SDL2**: For cross-platform multimedia handling.
-- **SDL2_mixer**: For audio playback.
 - **CMake**: To configure the build system.
 
 ## Setup and Compilation
@@ -35,12 +31,7 @@ cd CerberusEngine
 ```
 
 ### Install Dependencies
-Ensure the following dependencies are installed on your system:
-
-- **GLFW**: Use your package manager or download it from [GLFW's website](https://www.glfw.org/).
-- **GLAD**: Follow instructions to generate and include the loader files from [GLAD's website](https://gen.glad.sh/).
-- **SDL2**: Install via your package manager or download from [SDL2's website](https://libsdl.org/).
-- **SDL2_mixer**: Install via your package manager or download from [SDL2_mixer's website](https://libsdl.org/projects/SDL_mixer/).
+All required dependencies (GLFW, GLAD, SDL2, SDL2_mixer) are included in the repository. There is no need to install them separately.
 
 ### Build the Project
 To build the project, run the following commands:
@@ -68,7 +59,6 @@ The demonstration program displays a simple 3D scene with basic shapes. It allow
 ### Controls
 - **Keyboard**: Use `A` and `D` for side camera movement.
 - **Mouse**: Use the mouse for camera control.
-
 
 ## Contributing
 
