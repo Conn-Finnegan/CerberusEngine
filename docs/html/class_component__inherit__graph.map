@@ -1,0 +1,7 @@
+<map id="Component" name="Component">
+<area shape="rect" id="Node000001" title=" " alt="" coords="82,5,170,32"/>
+<area shape="rect" id="Node000002" href="$class_cube_renderer.html" title=" " alt="" coords="5,80,111,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,45,72,81,68,78,102,42"/>
+<area shape="rect" id="Node000003" href="$class_triangle_renderer.html" title=" " alt="" coords="135,80,256,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,41,185,78,181,81,146,45"/>
+</map>

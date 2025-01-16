@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CerberusEngine: src/Game/CollisionHandler.h Source File</title>
+<title>Cerberus Engine: D:/CerberusEngine/src/Game/CollisionHandler.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,11 +31,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="cerberus.jpg"/></td>
+  <td id="projectlogo"><img alt="Logo" src="Cerberus-Logo.jpg"/></td>
   <td id="projectalign">
-   <div id="projectname">CerberusEngine
+   <div id="projectname">Cerberus Engine<span id="projectnumber">&#160;1.0</span>
    </div>
-   <div id="projectbrief">Lightweight and Portable game engine project</div>
+   <div id="projectbrief">A lightweight and portable game engine</div>
   </td>
     <td>        <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -107,24 +107,30 @@ $(function(){initNavTree('_collision_handler_8h_source.html',''); initResizable(
   <div class="headertitle"><div class="title">CollisionHandler.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once </span><span class="comment">// Header included once </span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;glm/glm.hpp&gt;</span> <span class="comment">//   Include GLM </span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="foldopen" id="foldopen00005" data-start="{" data-end="};">
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="class_collision_handler.html">    5</a></span><span class="keyword">class </span><a class="code hl_class" href="class_collision_handler.html">CollisionHandler</a> {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> isPointInsideAABB(<span class="keyword">const</span> glm::vec3&amp; point, <span class="keyword">const</span> glm::vec3&amp; minBounds, <span class="keyword">const</span> glm::vec3&amp; maxBounds);</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>};</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//  CollisionHandler class to handle collsion detection </span></div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="class_collision_handler.html">    6</a></span><span class="keyword">class </span><a class="code hl_class" href="class_collision_handler.html">CollisionHandler</a> {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="comment">// Static method to check if a point is inside box (AABB)</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="comment">// point: The point to check</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="comment">// minBounds: The minimum bounds of the AABB</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="comment">// maxBounds: The maximum bounds of the AABB</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> isPointInsideAABB(<span class="keyword">const</span> glm::vec3&amp; point, <span class="keyword">const</span> glm::vec3&amp; minBounds, <span class="keyword">const</span> glm::vec3&amp; maxBounds);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
 </div>
-<div class="ttc" id="aclass_collision_handler_html"><div class="ttname"><a href="class_collision_handler.html">CollisionHandler</a></div><div class="ttdef"><b>Definition</b> CollisionHandler.h:5</div></div>
+<div class="ttc" id="aclass_collision_handler_html"><div class="ttname"><a href="class_collision_handler.html">CollisionHandler</a></div><div class="ttdef"><b>Definition</b> CollisionHandler.h:6</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b43036362fece0f978c3c8156df55d19.html">Game</a></li><li class="navelem"><b>CollisionHandler.h</b></li>
+    <li class="navelem"><a class="el" href="dir_c68f2b611de7c1249c4888c5dfbf15b8.html">CerberusEngine</a></li><li class="navelem"><a class="el" href="dir_ea8da4a36b7f113b82760ebf4aee6c67.html">src</a></li><li class="navelem"><a class="el" href="dir_c3d9a1ac215e22dc09783d5beab69224.html">Game</a></li><li class="navelem"><b>CollisionHandler.h</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
