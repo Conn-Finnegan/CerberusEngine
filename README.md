@@ -1,5 +1,7 @@
 # Cerberus Engine
 
+![Cerberus](Cerberus-Logo.png)
+
 This repository contains the source code for **Cerberus Engine**, a simple game engine built in C++ and OpenGL. The engine demonstrates the fundamentals of rendering, entity management, and component-based architecture.
 
 The primary goal of this project is to create a secure engine that allows users to build games by adding components and defining behaviour without altering the core functionality. This design provides flexibility for game creation while maintaining the integrity of the engine's core systems.
