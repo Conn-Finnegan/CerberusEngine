@@ -1,0 +1,217 @@
+commit 1a5bbb9b75e2acf9d12d06879d55b10073254ba3
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Thu Jan 16 15:35:32 2025 +0000
+
+    Comments for game files
+
+commit b309fed1f7e42031c735c95502530002b72d01d9
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Thu Jan 16 15:06:30 2025 +0000
+
+    Comments to H files
+
+commit 2e27ef47aa73bff30be3c4a8de64aa1118a8068c
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Thu Jan 16 10:55:31 2025 +0000
+
+    comments
+
+commit a15326697413b66535825f015312bd0461fd8831
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Thu Jan 16 00:32:39 2025 +0000
+
+    Update README.md
+
+commit 32d6e978d504b54e193af713c97ea024d039d999
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Thu Jan 16 00:32:13 2025 +0000
+
+    Update README.md
+
+commit 9b74d41c6857fafe5ae1dfd204bed53a06786e6f
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:57:33 2025 +0000
+
+    Create LICENSE
+
+commit 1c8deedc41d0dd053fbc786546c2206b618c274f
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:52:58 2025 +0000
+
+    Update README.md
+
+commit b08af125e5f783db35dd0b2bd1afe1043eb4ad02
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:52:36 2025 +0000
+
+    Update README.md
+
+commit 1fd6007290399dc5a72c2626e9c38eaa68367f10
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:47:57 2025 +0000
+
+    Update README.md
+
+commit d8125c4352fc04283b565b40f384b05eb500d73e
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:46:37 2025 +0000
+
+    Update README.md
+
+commit 6bdf3ecf2a759b375a3f19796012d0266dcd0413
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:43:12 2025 +0000
+
+    Update README.md
+
+commit 1973caab241a7b528c168da2d919733c10bfca9c
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:39:02 2025 +0000
+
+    Update README.md
+
+commit 72b12af18df67dad453a58d23ced93521d5b71b2
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:38:49 2025 +0000
+
+    Update README.md
+
+commit 6f060c9fce3eff7e96d56ee6aca3f839ba01ff31
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:38:17 2025 +0000
+
+    Update README.md
+
+commit bb383c8036ac8a7302ba422781ceae9c826e6ceb
+Author: Conn Finnegan <connfinneganbusiness@gmail.com>
+Date:   Wed Jan 15 23:32:58 2025 +0000
+
+    Update README.md
+
+commit 123060a1e35a4706c8b51f2f12d9001863a6ab0c
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Wed Jan 15 23:27:39 2025 +0000
+
+    Create README.md
+
+commit 107ea3d74375b576abba59868e27010ea0f089c5
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Wed Jan 15 17:22:49 2025 +0000
+
+    DoxyGen
+
+commit f6c9575740bd6b0f926a7a738eb9ee1c2dd76854
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Wed Jan 15 16:30:13 2025 +0000
+
+    Resource Management added
+    
+    Added the functionality for resource management. This ensures shader and audio loading do not create duplicates, reduces memory cost and ensure that memory is cleared post program.
+
+commit 4d7b314e2a48db8077a399e23cd1183cdaf63cfe
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Wed Jan 15 14:12:01 2025 +0000
+
+    Added resource and Camera adjust
+
+commit 8a872a33be7aca956347ab79ce8112f3b283635f
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 17:43:09 2025 +0000
+
+    Added SDL2,SDL2_mixer and music
+    
+    SDL2 and SDL2_mixer for playing music in game.
+
+commit 7d373edc3ce7dac765f04c41cd0552acd55b13ee
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 16:31:54 2025 +0000
+
+    File path changes
+
+commit d5a4e2f25f9577da10462325c2af9cae81253bab
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 16:27:32 2025 +0000
+
+    AABB collision added
+
+commit de151d4a74a8c0b332e9acf73dbc4ed5b1aa3dfd
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 16:17:22 2025 +0000
+
+    Cube Faces changes
+    
+    Different colour for each face
+
+commit 2232643ee022d36b9e38525fd15440367901487c
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 13:19:54 2025 +0000
+
+    Camera and cube now working
+
+commit 8743fc9221d9374b2658a5aa99de3fe0a296a3c1
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 12:24:19 2025 +0000
+
+    Working on camera
+    
+    Working on camera movement and projection
+
+commit 8a1a88e042ccd30077650de07cf60f1d4fbf0fb3
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 11:50:19 2025 +0000
+
+    GLM + Cube rendering
+    
+    Added GLM functionality and created a cube renderer.
+
+commit c3ffbd882496a21c21020f99ecc7090c2f0f2abd
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Tue Jan 14 10:59:14 2025 +0000
+
+    Centralised entity and component management
+    
+    I have refactored the engine to use a singleton core to ensure security.
+
+commit 73fa5dd5d0a047a3f48fb5a90c5bef4b93b426ef
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Mon Jan 13 11:53:01 2025 +0000
+
+    Green triangle achieved
+
+commit d6a48515290d2fe6a0c3d958a5eed3c1f559da4c
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Sun Jan 12 18:38:05 2025 +0000
+
+    Reduction back to triangle render
+    
+    reduced project back to triangle renderer as project was not working
+
+commit de8cb16a0398c676840ee3281ad32f7a36f72725
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Thu Jan 9 16:12:12 2025 +0000
+
+    Maze
+    
+    Code has been added to begin making a ball maze. Cmake updated however many errors still occuring that will need to be fixed in next session. Note include<glm.hpp> not include<glm/glm.hpp>
+
+commit bc1e22487b721fd60f19a3076ec0c6d37f95562f
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Fri Jan 3 18:43:52 2025 +0000
+
+    Code add to run window and display traignle
+    
+    Added code to render a window and display a simple triangle. Expanded CMake functionality so that the whole program can now be built with CMake. Forced MDd build mode but will have to change to MD for release build.
+
+commit 9a229419dbdf04d2fec953735a992ec0fc3e4c91
+Author: Conn Finnegan <cf658375@outlook.com>
+Date:   Thu Jan 2 17:09:14 2025 +0000
+
+    Project structure, GLAD and GLFW
+    
+    In this session I added GLAD and GLFW as external dependencies for the project and create the outline of the project structure.
+
+commit 55571b730e20787c825b57198e10cdd90b49e1da
+Author: Conn Finnegan <152865430+Conn-Finnegan@users.noreply.github.com>
+Date:   Thu Jan 2 15:46:36 2025 +0000
+
+    Initial commit
